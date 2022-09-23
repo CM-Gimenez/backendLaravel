@@ -31,6 +31,6 @@ Route::apiResource('productos','\App\Http\Controllers\ProductoController'::class
 //Crear un nuevo product
 //Route::post("/productos", ['\App\Http\Controllers\ProductoController','store']);
 //modificar un producto
-//Route::post("/productos/{producto}", ['\App\Http\Controllers\ProductoController','update']);
+//Route::put("/productos/{producto}", ['\App\Http\Controllers\ProductoController','update']);
 
 
