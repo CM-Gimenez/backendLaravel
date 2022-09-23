@@ -19,7 +19,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 //CRUD de productos
-Route::apiResource('productos','\App\Http\Controllers\ProductoController'::class );
+Route::apiResource('/productos','\App\Http\Controllers\ProductoController'::class );
 
 //mostrar todos los productos pagiNADOS DE 10EN 10
 //Route::get("/productos",['\App\Http\Controllers\ProductoController', 'index']);
