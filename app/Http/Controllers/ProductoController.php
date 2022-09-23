@@ -11,10 +11,7 @@ class ProductoController extends Controller
     public function index()
     {
         $productos = Producto::paginate(5);
-        return \response()->json([
-            "data"=>$productos, 
-            "message"=>"Success"
-        ], 200);
+        return \response()->json([$productos, 200]);
     }
     //buscar un producto por su nombre
     public function indexFind(Request $request)
@@ -32,20 +29,13 @@ class ProductoController extends Controller
     {
         $input = $request->all();
         $producto = Producto::create($input);
-        return \response()->json([
-            "data"=>$producto, 
-            "message"=>"Create"
-        ], 200);
     }
 
     //mostrar un producto por su id
     public function show($id)
     {
         $producto = Producto::find($id);
-        return \response()->json([
-            "data"=>$producto, 
-            "message"=>"Show"
-        ], 200);
+        return \response()->json($producto, 200);
     }
 
 
@@ -54,20 +44,15 @@ class ProductoController extends Controller
         $input = $request->all();
         $producto = Producto::find($id);
         $producto->update($input);
-        return \response()->json([
-            "data"=>$producto, 
-            "message"=>"Success update"
-        ], 200);
     }
 
     //eliminar producto
     public function destroy($id)
     {
-        $producto = Producto::all()->find($id);
-        $producto->delete();
-        return \response()->json([
-            "data"=>$producto, 
-            "message"=>"Delete"
-        ], 200);
+        try {
+            Producto::destroy($id);
+        } catch (\Exception $e) {
+            return $e;
+        }
     }
 }
