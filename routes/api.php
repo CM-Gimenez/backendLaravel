@@ -31,6 +31,6 @@ Route::delete('productos/{id}',[\App\Http\Controllers\ProductoController::class,
 //Crear un nuevo product
 Route::post('productos', [\App\Http\Controllers\ProductoController::class,'store']);
 //modificar un producto
-Route::put('productos/{id}', [\App\Http\Controllers\ProductoController::class,'update']);
+Route::post('productos/{id}', [\App\Http\Controllers\ProductoController::class,'update']);
 
 
